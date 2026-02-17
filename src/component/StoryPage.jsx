@@ -1,11 +1,10 @@
-// src/components/StoryPage.jsx (النسخة النهائية والمعدلة)
+// src/components/StoryPage.jsx (Final and Modified Version)
 
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, Maximize2, Minimize2 } from 'lucide-react';
-import { lessonsData } from '../../Data/lessonsData.js';
-import '../shared/StoryPage.css';
-import Spinner from './Spinner.jsx';
+import { lessonsData } from '../../Data/lessonsData.js'; // Make sure this path is correct
+import '../shared/StoryPage.css'; // Make sure this path is correct
 
 export const StoryPage = () => {
   const { unitId, lessonId } = useParams();
@@ -39,11 +38,33 @@ export const StoryPage = () => {
   const settingsPopupRef = useRef(null);
   const lesson = useMemo(() => lessonsData[unitId]?.[lessonId], [unitId, lessonId]);
 
-  if (!lesson) {
+  // --- START: MODIFICATIONS ---
+
+  const { videos, extraBubblesData, cloudPositions, interactiveTask } = lesson || {};
+  const currentVideoData = videos?.[currentVideo];
+
+  // 1. Get the index of the currently active subtitle
+  const activeSubtitleIndex = useMemo(() => {
+    if (!currentVideoData?.subtitles) return -1;
+    return currentVideoData.subtitles.findIndex(sub => currentTime >= sub.start && currentTime < sub.end);
+  }, [currentTime, currentVideoData]);
+
+  // 2. Determine if the current subtitle is the last one
+  const isLastSubtitle = useMemo(() => {
+    if (!currentVideoData?.subtitles || activeSubtitleIndex === -1) return false;
+    return activeSubtitleIndex === currentVideoData.subtitles.length - 1;
+  }, [activeSubtitleIndex, currentVideoData]);
+
+  // 3. Check if the current video is the one with the interactive task
+  const isInteractiveVideo = useMemo(() => {
+    return interactiveTask && currentVideo === interactiveTask.videoIndex;
+  }, [currentVideo, interactiveTask]);
+
+  // --- END: MODIFICATIONS ---
+
+  if (!lesson || !currentVideoData) {
     return <div className="story-page-container"><h1>Lesson data not found.</h1></div>;
   }
-  const { videos, extraBubblesData, cloudPositions, interactiveTask } = lesson;
-  const currentVideoData = videos[currentVideo];
 
   const handleNext = useCallback(() => {
     if (currentVideo < videos.length - 1) {
@@ -71,7 +92,7 @@ export const StoryPage = () => {
   };
 
   const handleWordClick = (word) => {
-    if (!interactiveTask || currentVideo !== interactiveTask.videoIndex) return;
+    if (!isInteractiveVideo) return;
     const cleanWord = word.toLowerCase().replace(/[.,?!]/g, "");
     if (!interactiveTask.correctWords.includes(cleanWord)) {
       setShowWrongFeedback(true);
@@ -90,14 +111,14 @@ export const StoryPage = () => {
   };
 
   const handleEnded = useCallback(() => {
-    if (interactiveTask && currentVideo === interactiveTask.videoIndex) {
+    if (isInteractiveVideo) {
       setShowBanner(true);
     } else if (autoPlayNext) {
       handleNext();
     } else {
       setIsPlaying(false);
     }
-  }, [currentVideo, interactiveTask, autoPlayNext, handleNext]);
+  }, [isInteractiveVideo, autoPlayNext, handleNext]);
 
   useEffect(() => {
     setSelectedWords([]);
@@ -109,8 +130,11 @@ export const StoryPage = () => {
     if (videoRef.current) {
       videoRef.current.load();
       videoRef.current.play().catch(() => setIsPlaying(false));
+      videoRef.current.playbackRate = playbackSpeed;
+      videoRef.current.muted = isMuted;
+      videoRef.current.volume = volume;
     }
-  }, [currentVideo]);
+  }, [currentVideo, playbackSpeed, isMuted, volume]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -118,7 +142,13 @@ export const StoryPage = () => {
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
     const onTimeUpdate = () => setCurrentTime(video.currentTime);
-    const onLoadedData = () => setDuration(video.duration);
+    const onLoadedData = () => {
+      setDuration(video.duration);
+      setIsLoading(false); // Set loading to false here
+    };
+    
+    setIsLoading(true); // Set loading to true when src changes
+
     video.addEventListener('play', onPlay);
     video.addEventListener('pause', onPause);
     video.addEventListener('timeupdate', onTimeUpdate);
@@ -159,41 +189,11 @@ export const StoryPage = () => {
     };
   }, []);
 
-  const activeSubtitle = useMemo(() => currentVideoData.subtitles.find(sub => currentTime >= sub.start && currentTime < sub.end), [currentTime, currentVideoData.subtitles]);
+  const activeSubtitle = useMemo(() => activeSubtitleIndex !== -1 ? currentVideoData.subtitles[activeSubtitleIndex] : null, [activeSubtitleIndex, currentVideoData.subtitles]);
+  
   const bubbleStyle = useMemo(() => {
-    const activeIndex = currentVideoData.subtitles.findIndex(sub => currentTime >= sub.start && currentTime < sub.end);
-    return cloudPositions?.[currentVideo]?.[activeIndex] || {};
-  }, [currentTime, currentVideo, cloudPositions, currentVideoData.subtitles]);
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    // إعادة تطبيق الخصائص بعد تحميل الفيديو الجديد
-    video.playbackRate = playbackSpeed;
-    video.volume = volume;
-    video.muted = isMuted;
-
-    // يمكن تشغيل الفيديو تلقائياً إذا تريد
-    video.play().catch(() => setIsPlaying(false));
-  }, [currentVideoData.url, playbackSpeed, volume, isMuted]);
-
-  useEffect(() => {
-    setIsLoading(true);
-  }, [currentVideo]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleLoadedData = () => setIsLoading(false);
-
-    video.addEventListener('loadeddata', handleLoadedData);
-
-    return () => {
-      video.removeEventListener('loadeddata', handleLoadedData);
-    };
-  }, [currentVideoData.url]);
-
+    return cloudPositions?.[currentVideo]?.[activeSubtitleIndex] || {};
+  }, [activeSubtitleIndex, currentVideo, cloudPositions]);
 
   return (
     <div className="story-page-container">
@@ -214,7 +214,7 @@ export const StoryPage = () => {
 
         {showWrongFeedback && <div className="wrong-feedback">Try Again! ❌</div>}
         {showFeedback && <div className="feedback-popup">Good Job! 👍</div>}
-        {showBanner && interactiveTask && currentVideo === interactiveTask.videoIndex && (
+        {showBanner && isInteractiveVideo && (
           <div className={`instruction-banner show ${isFullscreen ? 'fullscreen-banner' : ''}`}>
             {interactiveTask.instruction.map((line, index) => (
               <p key={index} style={{ fontSize: '1.8em', textAlign: 'left' }}>
@@ -224,11 +224,17 @@ export const StoryPage = () => {
           </div>
         )}
 
-
         {/* --- Subtitles & Captions --- */}
         {showSubtitles && activeSubtitle && (
           <div className="subtitle-container" style={bubbleStyle}>
-            <div className={`bubble-cloud ${bubbleStyle.isFlipped ? "flipped" : ""}`}>
+            {/* --- START: DYNAMIC CLASSNAME --- */}
+            <div
+              className={`bubble-cloud animate__animated animate__fadeIn
+                ${isInteractiveVideo && isLastSubtitle ? "question-bubble" : ""}
+                ${bubbleStyle.isFlipped ? "flipped" : ""}
+              `}
+            >
+            {/* --- END: DYNAMIC CLASSNAME --- */}
               <p>
                 {activeSubtitle.words.map((word, index) => (
                   <span key={index} onClick={() => handleWordClick(word.text)} className={`word-span ${textHighlight && currentTime >= word.start && currentTime < word.end ? 'active-word' : ''} ${selectedWords.includes(word.text.toLowerCase().replace(/[.,?!]/g, "")) ? 'selected-word' : ''}`}>

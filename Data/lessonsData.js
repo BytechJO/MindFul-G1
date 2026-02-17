@@ -163,7 +163,24 @@ export const lessonsData = {
                     url: u1l1_vid5,
                     subtitles: [
                         {
-                            start: 0, end: 5.0,
+                            start: 0, end: 4.0,
+                            words: [
+                                { text: "You", start: 0, end: 0.4 },
+                                { text: "help", start: 0.4, end: 0.7 },
+                                { text: "May", start: 0.7, end: 1.1 },
+                                { text: "all", start: 1.1, end: 1.2 },
+                                { text: "the", start: 1.2, end: 1.4 },
+                                { text: "time", start: 1.4, end: 1.8 },
+                                { text: " and", start: 1.8, end: 2.3 },
+                                { text: "I", start: 2.3, end: 2.4 },
+                                { text: "feel", start: 2.4, end: 2.8 },
+                                { text: "sad", start: 2.8, end: 3.4 },
+                                { text: "and", start: 3.4, end: 3.6 },
+                                { text: "angry", start: 3.6, end: 3.9 },
+                            ]
+                        },
+                        {
+                            start: 4.0, end: 5.0,
                             words: [
                                 { text: "You", start: 0, end: 0.4 },
                                 { text: "help", start: 0.4, end: 0.7 },
@@ -362,6 +379,7 @@ export const lessonsData = {
                 ],
                 4: [
                     { top: '10%', left: '70%', transform: 'translateX(-50%)', isFlipped: true },
+                    { top: '10%', left: '70%', transform: 'translateX(-50%)', isFlipped: true },
                 ],
                 5: [
                     { top: '25%', left: '25%', isFlipped: false },
@@ -428,6 +446,21 @@ export const lessonsData = {
                     subtitles: [
                         {
                             start: 4.0,
+                            end: 7.0,
+                            words: [
+                                { text: "she", start: 4.5, end: 4.7 },
+                                { text: "takes", start: 4.7, end: 5.0 },
+                                { text: "a", start: 5.0, end: 5.3 },
+                                { text: "deep", start: 5.3, end: 5.6 },
+                                { text: "breath", start: 5.6, end: 5.9 },
+                                { text: "and", start: 5.9, end: 6.2 },
+                                { text: "counts", start: 6.2, end: 6.6 },
+                                { text: "to", start: 6.6, end: 6.9 },
+                                { text: "ten.", start: 6.9, end: 7.2 },
+                            ],
+                        },
+                        {
+                            start: 7.0,
                             end: 15.0,
                             words: [
                                 { text: "she", start: 4.5, end: 4.7 },
@@ -660,7 +693,7 @@ export const lessonsData = {
             cloudPositions: {
                 0: [],
                 1: [],
-                2: [{ top: "10%", right: "60%", left: false }],
+                2: [{ top: "10%", right: "60%", left: false },{ top: "10%", right: "60%", left: false }],
                 3: [
                     { bottom: "80%", left: "45%", isFlipped: true },
                     { top: "10%", left: "50%", isFlipped: true },
@@ -802,7 +835,24 @@ export const lessonsData = {
                             ]
                         },
                         {
-                            start: 5.0, end: 12.5,
+                            start: 5.0, end: 9.5,
+                            words: [
+                                { text: "We", start: 5.4, end: 5.7 },
+                                { text: "keep", start: 5.7, end: 6.0 },
+                                { text: "public", start: 6.0, end: 6.3 },
+                                { text: "places", start: 6.3, end: 6.6 },
+                                { text: "clean", start: 6.6, end: 6.9 },
+                                { text: "by", start: 6.9, end: 7.2 },
+                                { text: "throwing", start: 7.2, end: 7.5 },
+                                { text: "our", start: 7.5, end: 7.8 },
+                                { text: "rubbish", start: 7.8, end: 8.2 },
+                                { text: "in", start: 8.2, end: 8.4 },
+                                { text: "the", start: 8.4, end: 8.7 },
+                                { text: "bin.", start: 8.7, end: 9.0 },
+                            ]
+                        },
+                        {
+                            start: 9.5, end: 12.5,
                             words: [
                                 { text: "We", start: 5.4, end: 5.7 },
                                 { text: "keep", start: 5.7, end: 6.0 },
@@ -1024,6 +1074,7 @@ export const lessonsData = {
                 4: [
                     { top: '10%', left: '30%', isFlipped: true },
                     { top: '5%', left: '35%' },
+                    { top: '5%', left: '30%' },
                 ],
                 5: [
                 ],
@@ -1101,6 +1152,26 @@ export const lessonsData = {
                     subtitles: [
                         {
                             start: 4.6,
+                            end: 9.0,
+                            words: [
+                                { text: "Lets", start: 4.7, end: 5.1 },
+                                { text: "try", start: 5.1, end: 5.4 },
+                                { text: "counting", start: 5.4, end: 5.7 },
+                                { text: "to", start: 5.7, end: 6.0 },
+                                { text: "ten", start: 6.0, end: 6.7 },
+                                { text: "that", start: 6.9, end: 7.3 },
+                                { text: "always", start: 7.3, end: 7.6 },
+                                { text: "helps", start: 7.6, end: 7.9 },
+                                { text: "me", start: 7.9, end: 8.1 },
+                                { text: "keep", start: 8.1, end: 8.4 },
+                                { text: "calm", start: 8.4, end: 8.7 },
+                                { text: "when", start: 8.7, end: 9.0 },
+                                { text: "Im", start: 9.0, end: 9.3 },
+                                { text: "angry.", start: 9.3, end: 9.7 },
+                            ],
+                        },
+                        {
+                            start: 9.0,
                             end: 10.0,
                             words: [
                                 { text: "Lets", start: 4.7, end: 5.1 },
@@ -1362,7 +1433,7 @@ export const lessonsData = {
 
                 2: [],
 
-                3: [{ bottom: "75%", left: "1%" }],
+                3: [{ bottom: "75%", left: "1%" },{ bottom: "50%", left: "28%" }],
 
                 4: [
                     { top: "10%", left: "60%", isFlipped: true },
@@ -2325,7 +2396,22 @@ export const lessonsData = {
                             ]
                         },
                         {
-                            start: 6.5, end: 13.0,
+                            start: 6.5, end: 12.0,
+                            words: [
+                                { text: "Try", start: 6.6, end: 7.0 },
+                                { text: "to", start: 7.0, end: 7.4 },
+                                { text: "use", start: 7.4, end: 7.8 },
+                                { text: "words", start: 7.8, end: 8.2 },
+                                { text: "like", start: 8.2, end: 8.6 },
+                                { text: "please,", start: 8.6, end: 9.3 },
+                                { text: "thank", start: 9.3, end: 10.5 },
+                                { text: "you", start: 9.3, end: 10.5 },
+                                { text: "and", start: 10.5, end: 1.9 },
+                                { text: "sorry.", start: 10.9, end: 11.8 },
+                            ]
+                        },
+                        {
+                            start: 12.0, end: 13.0,
                             words: [
                                 { text: "Try", start: 6.6, end: 7.0 },
                                 { text: "to", start: 7.0, end: 7.4 },
@@ -2496,6 +2582,7 @@ export const lessonsData = {
                     { bottom: '75%', left: '30%', isFlipped: true },
                     { top: '8%', left: '28%', isFlipped: true },
                     { top: '10%', left: '25%', isFlipped: true },
+                    { top: '10%', left: '23%', isFlipped: true },
                 ],
 
                 4: [
@@ -2555,6 +2642,31 @@ export const lessonsData = {
                 {
                     url: u3l3_vid4,
                     subtitles: [
+                        {
+                            start: 6.5,
+                            end: 13.0,
+                            words: [
+                                { text: "Personal", start: 6.4, end: 6.8 },
+                                { text: "space", start: 6.8, end: 7.2 },
+                                { text: "is", start: 7.2, end: 7.4 },
+                                { text: "like", start: 7.4, end: 7.7 },
+                                { text: "a", start: 7.7, end: 7.9 },
+                                { text: "bubble", start: 7.9, end: 8.3 },
+                                { text: "around", start: 8.3, end: 8.7 },
+                                { text: "us.", start: 8.7, end: 9.0 },
+                                { text: "If", start: 9.0, end: 9.2 },
+                                { text: "someone", start: 9.2, end: 9.6 },
+                                { text: "gets", start: 9.6, end: 9.9 },
+                                { text: "too", start: 9.9, end: 10.2 },
+                                { text: "close,", start: 10.2, end: 10.5 },
+                                { text: "it", start: 11.0, end: 11.2 },
+                                { text: "pops.", start: 11.2, end: 11.4 },
+                                { text: "Then", start: 12.0, end: 12.3 },
+                                { text: "we", start: 12.3, end: 12.5 },
+                                { text: "feel", start: 12.5, end: 12.8 },
+                                { text: "uncomfortable.", start: 12.8, end: 13.2 },
+                            ],
+                        },
                         {
                             start: 6.5,
                             end: 14.0,
@@ -2890,7 +3002,22 @@ export const lessonsData = {
                             ]
                         },
                         {
-                            start: 8.9, end: 16.0,
+                            start: 8.9, end: 12.4,
+                            words: [
+                                { text: "Mum", start: 9.0, end: 9.3 },
+                                { text: "explains", start: 9.3, end: 9.7 },
+                                { text: " that", start: 9.7, end: 10.0 },
+                                { text: "saying", start: 10.0, end: 10.3 },
+                                { text: "thank", start: 10.3, end: 10.9 },
+                                { text: "you", start: 10.3, end: 10.9 },
+                                { text: "shows", start: 11.5, end: 11.8 },
+                                { text: "that", start: 11.8, end: 12.1 },
+                                { text: "you", start: 12.1, end: 12.4 },
+                                { text: "care.", start: 12.4, end: 12.7 }
+                            ]
+                        },
+                        {
+                            start: 12.4, end: 16.0,
                             words: [
                                 { text: "Mum", start: 9.0, end: 9.3 },
                                 { text: "explains", start: 9.3, end: 9.7 },
@@ -3053,6 +3180,7 @@ export const lessonsData = {
                     { top: '20%', left: '50%', isFlipped: true },
                     { top: '15%', left: '0%' },
                     { top: '20%', left: '5%' },
+                    { top: '15%', left: '3.5%' },
                 ],
 
                 2: [
@@ -3161,6 +3289,18 @@ export const lessonsData = {
                     url: u4l2_vid3,
                     subtitles: [
 
+                        {
+                            start: 5.3, end: 8.0,
+                            words: [
+                                { text: "You", start: 5.4, end: 5.7 },
+                                { text: "should", start: 5.7, end: 6.1 },
+                                { text: "take", start: 6.1, end: 6.4 },
+                                { text: "turns", start: 6.4, end: 6.7 },
+                                { text: "playing", start: 6.7, end: 7.1 },
+                                { text: "both", start: 7.1, end: 7.4 },
+                                { text: "games", start: 7.4, end: 7.8 }
+                            ]
+                        },
                         {
                             start: 5.3, end: 8.0,
                             words: [
