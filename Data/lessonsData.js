@@ -410,7 +410,7 @@ export const lessonsData = {
                     {
                         id: 'Q1',
                         text: "How did Kate feel in the beginning of the story?",
-                        options: ["Sad and angry.", "Happy.", "Tired."],
+                        options: ["Sad and angry", "Happy", "Tired"],
                         correctAnswer: "0" // فهرس الإجابة الصحيحة
                     },
                     {
@@ -422,7 +422,7 @@ export const lessonsData = {
                     {
                         id: 'Q3',
                         text: "What did Kate ask her mum to help her with?",
-                        options: ["Clean her room.", "Feed May.", "Bake a cake."],
+                        options: ["Clean her room", "Feed May", "Bake a cake"],
                         correctAnswer: "2"
                     }
                 ]
@@ -1097,13 +1097,13 @@ export const lessonsData = {
                     {
                         id: 'Q1',
                         text: "Who does the right thing at the beginning of the story?",
-                        options: ["Noura.", "Ben.", "A neighbour."],
+                        options: ["Noura", "Ben", "A neighbour"],
                         correctAnswer: "0"
                     },
                     {
                         id: 'Q2',
                         text: "What did Noura learn at school?",
-                        options: ["Throw trash on the ground.", "Never use bins.", "Take care of public places."],
+                        options: ["Throw trash on the ground", "Never use bins", "Take care of public places"],
                         correctAnswer: "2"
                     },
                     {
@@ -1472,7 +1472,7 @@ export const lessonsData = {
                     {
                         id: 'Q2',
                         text: "What did the teacher tell Kim to do?",
-                        options: ["Jump.", "Shout.", "Count to ten."],
+                        options: ["Jump", "Shout", "Count to ten"],
                         correctAnswer: "2"
                     },
                     {
@@ -1772,7 +1772,7 @@ export const lessonsData = {
                     {
                         id: 'Q1',
                         text: "What did Mia say to Paul?",
-                        options: ["‘Your picture does not look nice!.’", "‘I like your picture.’", "‘I don’t like you.’"],
+                        options: ["‘Your picture does not look nice!’", "‘I like your picture.’", "‘I don’t like you.’"],
                         correctAnswer: "0"
                     },
                     {
@@ -2051,13 +2051,13 @@ export const lessonsData = {
                     {
                         id: 'Q1',
                         text: "Who was John playing with?",
-                        options: ["His sister.", "His brother.", "His dad."],
+                        options: ["His sister", "His brother", "His dad"],
                         correctAnswer: "0"
                     },
                     {
                         id: 'Q2',
                         text: "What did their mum ask them to do?",
-                        options: ["Get dressed.", "Play in their bedroom.", "Make food."],
+                        options: ["Get dressed", "Play in their bedroom", "Make food"],
                         correctAnswer: "1"
                     },
                     {
@@ -2295,19 +2295,19 @@ export const lessonsData = {
                     {
                         id: 'Q1',
                         text: "How did Joe feel at the beginning of the story?",
-                        options: ["Happy.", "Angry.", "Scared."],
+                        options: ["Happy", "Angry", "Scared"],
                         correctAnswer: "2"
                     },
                     {
                         id: 'Q2',
                         text: "What was James asked to do?",
-                        options: ["To be Peter’s friend.", "To be Joe’s friend.", "To be the teacher’s friend."],
+                        options: ["To be Peter’s friend", "To be Joe’s friend", "To be the teacher’s friend"],
                         correctAnswer: "1"
                     },
                     {
                         id: 'Q3',
                         text: "What game did James play with Joe?",
-                        options: ["Dinosaur chase.", "Hide and seek.", "Racing."],
+                        options: ["Dinosaur chase", "Hide and seek", "Racing"],
                         correctAnswer: "1"
                     }
                 ]
@@ -2610,7 +2610,7 @@ export const lessonsData = {
                     {
                         id: 'Q2',
                         text: "It is ___________ to use bad words.",
-                        options: ["wrong.", "right.", "okay."],
+                        options: ["wrong", "right", "okay"],
                         correctAnswer: "0"
                     },
                     {
@@ -3212,19 +3212,19 @@ export const lessonsData = {
                     {
                         id: 'Q1',
                         text: "Amy said thank you to",
-                        options: ["Her aunt.", "Her parents.", "Her brother."],
+                        options: ["Her aunt", "Her parents", "Her brother"],
                         correctAnswer: "1"
                     },
                     {
                         id: 'Q2',
                         text: "What did Amy thank her parents for?",
-                        options: ["Taking care of her.", "Going shopping.", "Taking her to the park."],
+                        options: ["Taking care of her", "Going shopping", "Taking her to the park"],
                         correctAnswer: "0"
                     },
                     {
                         id: 'Q3',
                         text: "Who thanked Amy at the end of the story?",
-                        options: ["The neighbours.", "Her friends.", "Her parents."],
+                        options: ["The neighbours", "Her friends", "Her parents"],
                         correctAnswer: "2"
                     }
                 ]
